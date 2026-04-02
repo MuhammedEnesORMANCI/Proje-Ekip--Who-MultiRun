@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
     public float speed = 10f;
     public float jumpForce = 300f;
 
-
     private Rigidbody rb;
 
     void Start()

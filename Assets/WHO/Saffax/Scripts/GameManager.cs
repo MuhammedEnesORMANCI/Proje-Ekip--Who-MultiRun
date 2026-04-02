@@ -7,10 +7,11 @@ public class GameManager : MonoBehaviour
 {
     // Singleton örneði
     public static GameManager instance;
-
+    public AudioSource deadSound;
     public string[] scenes;
     public int sceneIndex = 0;
     string currentScene;
+
 
     void Awake()
     {
@@ -33,13 +34,14 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
+        deadSound.Play();
         SceneManager.LoadScene(currentScene);
     }
 
     public void LevelUp()
     {
         if (sceneIndex < scenes.Length - 1)
-        {
+        {          
             sceneIndex++;
             UpdateCurrentScene();
             SceneManager.LoadScene(currentScene);
